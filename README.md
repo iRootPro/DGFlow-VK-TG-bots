@@ -21,8 +21,9 @@ pip install -r requirements.txt
 Нам понадобятся:
 
 1. Telegram Token
-2. VK Token
-3. Ключ-json для DialogFlow
+2. Telegram chat id
+3. VK Token
+4. Ключ-json для DialogFlow
 
 1. Для получения Telegram **TOKEN** найдите в Telegram @botfather и создайте новый бот. После того, как бот будет создан, вы получите токен.
 
@@ -30,15 +31,21 @@ pip install -r requirements.txt
 ```shell
 TELEGRAM_TOKEN=ВАШ_TELEGRAM_TOKEN
 ```
+2. Для того, чтобы вы были в курсе возникших проблес с ботами необходимо указать `chat id` telegam, куда будут приходить логи.
 
-2. Создайте гновую группу в VK или перейдите в настройки существующей. Справа в меню выберите пункт `Работа с API` и нажмите на кнопку `Создать ключ`.
+В файл `.env` добавить:
+```shell
+TELEGRAM_CHATID=ВАШ_CHATID
+```
+
+3. Создайте гновую группу в VK или перейдите в настройки существующей. Справа в меню выберите пункт `Работа с API` и нажмите на кнопку `Создать ключ`.
 
 В файл `.env` добавить:
 ```shell
 VK_TOKEN=ВАШ_VK_TOKEN
 ```
 
-3. Для получения ключа DialogFlow сначала необходимо зарегистрироваться [здесь](https://cloud.google.com/).
+4. Для получения ключа DialogFlow сначала необходимо зарегистрироваться [здесь](https://cloud.google.com/).
 Далее создать проект, как указано [здесь](https://cloud.google.com/dialogflow/docs/quick/setup).
 После чего создать агент, как указано [здесь](https://cloud.google.com/dialogflow/docs/quick/build-agent).
 В завершении создать и скачать json-ключ. Иснтрукция [здесь](https://cloud.google.com/docs/authentication/getting-started). Скаченный ключ разместить в корне со скриптами.
