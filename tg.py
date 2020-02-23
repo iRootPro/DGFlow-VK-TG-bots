@@ -1,8 +1,11 @@
 from telegram.ext import Updater
 from telegram.ext import CommandHandler, MessageHandler, Filters
 from dotenv import load_dotenv
+import logging.config
+import os
 
 import dgflow
+from settings import logger_config
 
 
 def start(bot, update):
@@ -22,3 +25,18 @@ def launch_tg_bot(TELEGRAM_TOKEN):
     updater.dispatcher.add_handler(
         MessageHandler(Filters.text, speak_w_client))
     updater.start_polling()
+
+
+def main():
+	TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+	try:
+		logger.debug('Tg бот запущен')
+		launch_tg_bot(TELEGRAM_TOKEN)
+	except Exception:
+		logger.exception('Произошла ошибка')
+
+if __name__ == '__main__':
+	logging.config.dictConfig(logger_config)
+	logger = logging.getLogger('DGFlowBots')
+	load_dotenv()
+	main()
