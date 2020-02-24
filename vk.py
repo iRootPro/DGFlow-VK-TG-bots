@@ -12,14 +12,17 @@ from settings import logger_config
 
 
 def send_answer(event, vk_api, text, lang):
-    session_id = random.randint(1, 1000)
-    answer = get_answer(get_project_id(), session_id, event.text, lang)
-    if answer:
-        vk_api.messages.send(
-            user_id=event.user_id,
-            message=answer,
-            random_id=random.randint(1, 1000)
-        )
+    try:
+        session_id = random.randint(1, 1000)
+        answer = get_answer(get_project_id(), session_id, event.text, lang)
+        if answer:
+            vk_api.messages.send(
+                user_id=event.user_id,
+                message=answer,
+                random_id=random.randint(1, 1000)
+            )
+    except Exception:
+        logger.exception('Произошла ошибка')
 
 
 def launch_vk_bot(token):
