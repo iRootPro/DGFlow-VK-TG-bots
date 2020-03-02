@@ -10,6 +10,7 @@ from settings import logger_config
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 logger = logging.getLogger('DGFlowBots')
 
+
 def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Здравствуйте.")
 
@@ -33,11 +34,8 @@ def launch_tg_bot(TELEGRAM_TOKEN):
 
 
 def main():
-    try:
         logger.debug('Tg бот запущен')
         launch_tg_bot(TELEGRAM_TOKEN)
-    except Exception:
-        logger.exception('Произошла ошибка')
 
 
 if __name__ == '__main__':
