@@ -5,10 +5,11 @@ import os
 import random
 import logging.config
 
-
 from dgflow import get_answer
 from file import get_project_id
 from settings import logger_config
+
+logging.config.dictConfig(logger_config)
 
 
 def send_answer(event, vk_api, text, lang):
@@ -42,8 +43,8 @@ def main():
     except Exception:
         logger.exception('Произошла ошибка')
 
+
 if __name__ == '__main__':
-    logging.config.dictConfig(logger_config)
     logger = logging.getLogger('DGFlowBots')
     load_dotenv()
     main()

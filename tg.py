@@ -8,7 +8,7 @@ import dgflow
 from settings import logger_config
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
-
+logger = logging.getLogger('DGFlowBots')
 
 def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Здравствуйте.")
@@ -42,7 +42,6 @@ def main():
 
 if __name__ == '__main__':
     logging.config.dictConfig(logger_config)
-    logger = logging.getLogger('DGFlowBots')
     load_dotenv()
     main()
 
