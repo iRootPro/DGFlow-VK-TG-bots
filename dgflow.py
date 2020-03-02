@@ -10,4 +10,7 @@ def get_answer(project_id, session_id, text, language_code):
     query_input = dialogflow.types.QueryInput(text=text_input)
     response = session_client.detect_intent(
         session=session, query_input=query_input)
+
+    if response.query_result.intent.is_fallback:
+    	return False
     return response.query_result.fulfillment_text
