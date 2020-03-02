@@ -7,6 +7,8 @@ import os
 import dgflow
 from settings import logger_config
 
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+
 
 def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Здравствуйте.")
@@ -31,7 +33,6 @@ def launch_tg_bot(TELEGRAM_TOKEN):
 
 
 def main():
-    TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
     try:
         logger.debug('Tg бот запущен')
         launch_tg_bot(TELEGRAM_TOKEN)
