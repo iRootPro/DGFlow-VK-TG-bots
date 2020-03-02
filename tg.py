@@ -13,12 +13,12 @@ def start(bot, update):
 
 
 def speak_w_client(bot, update):
-	try:
-	    answer = dgflow.get_answer(
-	        'tgspeak', update.message.chat_id, update.message.text, 'ru')
-	    update.message.reply_text(answer)
-	except Exception:
-		logger.exception('Произошла ошибка')
+    try:
+        answer = dgflow.get_answer(
+            'tgspeak', update.message.chat_id, update.message.text, 'ru')
+        update.message.reply_text(answer)
+    except Exception:
+        logger.exception('Произошла ошибка')
 
 
 def launch_tg_bot(TELEGRAM_TOKEN):
@@ -31,15 +31,17 @@ def launch_tg_bot(TELEGRAM_TOKEN):
 
 
 def main():
-	TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
-	try:
-		logger.debug('Tg бот запущен')
-		launch_tg_bot(TELEGRAM_TOKEN)
-	except Exception:
-		logger.exception('Произошла ошибка')
+    TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+    try:
+        logger.debug('Tg бот запущен')
+        launch_tg_bot(TELEGRAM_TOKEN)
+    except Exception:
+        logger.exception('Произошла ошибка')
+
 
 if __name__ == '__main__':
-	logging.config.dictConfig(logger_config)
-	logger = logging.getLogger('DGFlowBots')
-	load_dotenv()
-	main()
+    logging.config.dictConfig(logger_config)
+    logger = logging.getLogger('DGFlowBots')
+    load_dotenv()
+    main()
+
