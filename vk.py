@@ -9,8 +9,7 @@ from dgflow import get_answer
 from file import get_project_id
 from settings import logger_config
 
-logging.config.dictConfig(logger_config)
-
+logger = logging.getLogger('DGFlowBots')
 
 def send_answer(event, vk_api, text, lang):
     try:
@@ -45,6 +44,6 @@ def main():
 
 
 if __name__ == '__main__':
-    logger = logging.getLogger('DGFlowBots')
+    logging.config.dictConfig(logger_cinfig)
     load_dotenv()
     main()
