@@ -12,5 +12,5 @@ def get_answer(project_id, session_id, text, language_code):
         session=session, query_input=query_input)
 
     if response.query_result.intent.is_fallback:
-    	return False
+    	return
     return response.query_result.fulfillment_text
