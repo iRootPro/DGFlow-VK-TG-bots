@@ -34,8 +34,8 @@ def launch_tg_bot(telegram_token):
 
 
 def main():
-        logger.debug('Tg бот запущен')
-        launch_tg_bot(TELEGRAM_TOKEN)
+    logger.debug('Tg бот запущен')
+    launch_tg_bot(TELEGRAM_TOKEN)
 
 
 if __name__ == '__main__':
