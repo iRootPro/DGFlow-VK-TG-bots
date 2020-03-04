@@ -24,8 +24,8 @@ def speak_w_client(bot, update):
         logger.exception('Произошла ошибка')
 
 
-def launch_tg_bot(TELEGRAM_TOKEN):
-    updater = Updater(token=TELEGRAM_TOKEN)
+def launch_tg_bot(telegram_token):
+    updater = Updater(token=telegram_token)
     start_handler = CommandHandler('start', start)
     updater.dispatcher.add_handler(start_handler)
     updater.dispatcher.add_handler(
